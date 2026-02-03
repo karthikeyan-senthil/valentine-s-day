@@ -206,3 +206,42 @@ body {
 .hidden {
     display: none !important;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        width: 90%;
+        max-height: 90vh;
+        /* Prevent container from going off-screen */
+        overflow-y: auto;
+        /* Allow scrolling if content is too tall */
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .success-title {
+        font-size: 3rem;
+        /* Significantly smaller than 6rem */
+    }
+
+    .success-message {
+        font-size: 1.1rem;
+    }
+
+    .bear-img {
+        width: 150px;
+        /* Slightly smaller image */
+    }
+
+    .buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 24px;
+        font-size: 1rem;
+    }
+}
