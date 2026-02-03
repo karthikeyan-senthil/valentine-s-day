@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;600;800&display=swap');
+
+:root {
+    --primary-color: #ff4b6e;
+    --secondary-color: #ff8fa3;
+    --bg-gradient-start: #ffdde1;
+    --bg-gradient-end: #ee9ca7;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.9);
+    --text-color: #d6334f;
+    --shadow-color: rgba(255, 75, 110, 0.3);
+    --yes-btn-bg: #2ecc71;
+    --yes-btn-hover: #27ae60;
+    --no-btn-bg: #e74c3c;
+    --no-btn-hover: #c0392b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    /* Prevent scrolling from flying hearts */
+    position: relative;
+}
+
+/* Flying Hearts Background */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    animation: flyUp linear infinite;
+    z-index: 1;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0) scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-110vh) scale(1.5) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main Card */
+.container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 20px 50px var(--shadow-color);
+    z-index: 10;
+    max-width: 90%;
+    width: 500px;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bear-img {
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+    /* mix-blend-mode: multiply; If the image has white bg */
+    border: 5px solid white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    /* Center align items so growing button expands from center */
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn {
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-yes {
+    background-color: var(--yes-btn-bg);
+    color: white;
+}
+
+.btn-yes:hover {
+    background-color: var(--yes-btn-hover);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+}
+
+.btn-no {
+    background-color: var(--no-btn-bg);
+    color: white;
+}
+
+.btn-no:hover {
+    background-color: var(--no-btn-hover);
+    transform: scale(0.95);
+}
+
+/* Success State */
+.success-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 20;
+    animation: fadeIn 1s ease-out;
+}
+
+.success-title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 6rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-shadow: 0 5px 15px rgba(255, 75, 110, 0.3);
+}
+
+.success-message {
+    font-size: 1.5rem;
+    color: #555;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Hidden Utility */
+.hidden {
+    display: none !important;
+}

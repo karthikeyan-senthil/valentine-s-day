@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Preload Bear Image to avoid flicker -->
+    <link rel="preload" as="image" href="assets/bear.png">
+</head>
+
+<body>
+
+    <!-- Background Hearts -->
+    <div class="hearts-container"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="question-content">
+            <h1 class="title">Will you be my Valentine?</h1>
+            <img src="assets/bear.png" alt="Cute Bear" class="bear-img">
+            <div class="buttons">
+                <button class="btn btn-yes">Yes</button>
+                <button class="btn btn-no">No</button>
+            </div>
+        </div>
+
+        <div class="success-content hidden">
+            <h1 class="success-title">I Love You! ❤</h1>
+            <img src="assets/bear.png" alt="Happy Bear" class="bear-img"
+                style="transform: scale(1.1); margin-bottom: 2rem;">
+            <p class="success-message">You've made me the happiest person in the world! Happy Valentine's Day!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
